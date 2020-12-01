@@ -7,24 +7,25 @@ import json
 
 
 
-# class GreetingView(View):
-#     def get(self, request):
+class GreetingView(View):
+    def get(self, request):
       
-#         greeting_qs = card.objects.all()
-#         dict_ = {}
-#         greeting_qs = [ dict_[name] for name in greeting_qs]
-#         print(greeting_qs)
-#         data = serializers.serialize("json", greeting_qs)
-#         print(data)
-#         return HttpResponse(data)
+        greeting_qs = card.objects.all()
+        dict_ = {'name':''}
+        #greeting_qs = [ dict_[name] for name in greeting_qs.values('name','message')]
+        print(list(greeting_qs.values('name','message')))
+        data = list(greeting_qs.values('name','message'))
+       # data = serializers.serialize("json", greeting_qs)
+       # print(data)
+        return HttpResponse(json.dumps(data))
 
 #Create your views here.
-def home(request):
-    context = {
-        'name':'Shubham Kumar',
-        'message':'Hello worlds'
-    }
-    return render(request,'index.html',context)
+# def home(request):
+#     context = {
+#         'name':'Shubham Kumar',
+#         'message':'Hello worlds'
+#     }
+#     return render(request,'index.html',context)
     
     #return HttpResponse('<h1>Hello World<h1>')
 

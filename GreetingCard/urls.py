@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from cardApp import views
+#from cardApp import views
 
 admin.site.site_header = "Swayam Admin"
 admin.site.site_title = "Shubham Admin Portal"
