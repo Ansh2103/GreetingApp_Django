@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GREETING APP</title>
+    <style>
+        .container{
+            text-align : center;
+        }
+        .colour{
+            background-color: brown;
+        }
+    
+        h1{
+            color: cornflowerblue;
+        }
+        .card{
+            margin-top : 70px;
+        border: 4px solid rgb(122, 228, 228);
+            background-color: rgb(110, 223, 208);
+            border-radius: 5px;
+            margin: 3px;
+            width: 18rem;
+            padding: 20px;
+            box-sizing: border-box;
+            display: inline-block;
+            box-shadow: 0 0 8px #444849;
+        }
+        #newForm{
+            margin-top: 20px;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            width: 1000px;
+            margin:auto;
+        }
+        
+        .form-label{
+            margin-left: 15px;
+        }
+        #submitData{
+            background-color: cornflowerblue;
+            border: none;
+            color: white;
+            text-align: center;
+            font-size: 37px;
+            border-radius: 4px;
+            margin-left: 350px;
+        }
+        
+        input[type=text] {
+            width: 80%;
+            padding: 12px 20px;
+            margin: 8px 15px;
+            box-sizing: border-box;
+        }
+        #newForm input[type=text]:focus,
+        #newForm select:focus{
+        -moz-box-shadow: 0 0 8px #88D5E9;
+        -moz-box-shadow: 0 0 8px #88D5E9;
+        -webkit-box-shadow: 0 0 8px #88D5E9;
+        box-shadow: 0 0 8px #88D5E9;
+        border: 1px solid rgb(20, 80, 95);
+        }
+        </style>
+
+</head>
+
+<body class=colour>
+ 
+        <div class = "container">
+            <h1><i><b>Welcome User To Greeting App</i></b></h1>
+        </div>
+        <form method='post' action='' id="newForm" name="myForm" >
+        {% csrf_token %}
+            <div>
+                <label for="name" class="form-label">Enter Name</label>
+                <div >
+                    <input type="text" name="name" id="name" placeholder="Please Enter Your name" required>
+                </div>
+            </div>
+            <div>
+                <label for="Message" class="form-label">Message</label>
+                <div >
+                    <input type="text" name="message" id="message" placeholder="Enter any message" required>
+                </div>
+            </div>
+
+            <button  class= 'btn btn-primary'  id="submitData" type="submit" >Submit</button>
+            <br>
+        </form>
+        
+        <h1>Collection Of Greeting Cards:</h1>
+        <div id = 'cardCreator' class="main"></div>
+       <br>
+       <br>
+       <br>
+       {% comment %} greeting card content is <b>{{name}}</b>
+        greeting card content is <b>{{message}}</b> {% endcomment %}
+    </div>
+    <script>
+    let arrayOfCards = [
+    
+    {
+        name : "Shubham",
+        message: "Hello everyone,Good afternoon"
+        
+    },
+
+    {
+        name : "Aditya",
+        message: "Hello everyone,Good afternoon"
+    },
+
+    {
+        name : "Mohit",
+        message: "Hello everyone,Good afternoon"
+    },
+
+    {
+        name : "Pawan",
+        message: "Hello everyone,Good afternoon"
+    },
+
+    {
+        name : "Manoj",
+        message: "Hello everyone,Good afternoon"
+    },
+
+    {
+        name : "Aniket",
+        message: "Hello everyone,Good afternoon"
+    },
+
+    {
+        name : "Shweta",
+        message: "Hello everyone,Good afternoon"
+    },
+
+    {
+        name : "Anu",
+        message: "Hello everyone,Good afternoon"
+    },
+
+    {
+        name : "Priya",
+        message: "Hello everyone,Good afternoon"
+    },
+    {
+        name : "Dhiraj",
+        message: "Hello everyone,Good afternoon"
+    },
+    {
+        name : "Suchita",
+        message: "Hello everyone,Good afternoon"
+    },
+    {
+        name : "Gaurav",
+        message: "Hello everyone,Good afternoon"
+    }
+]
+
+
+{% comment %} $(document).ready(function(){
+  
+    $.get("http://127.0.0.1:8000", function(data, status){
+      console.log("Data: " + data + "\nStatus: " + status);
+    });
+});  {% endcomment %}
+
+
+var demo = "", i;
+length = arrayOfCards["length"]
+for (i=0; i<length; i++){
+
+    demo = demo + "<div class='card'> <div class= 'title'> <h3> " + arrayOfCards[i].name + "</h3></div>" +"<div class='that'> <h3>" + arrayOfCards[i].message + "</h3></div></div>";
+}
+document.getElementById('cardCreator').innerHTML = demo;
+
+
+    </script>
+</body>
+</html>
